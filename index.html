@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +30,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(ellipse at top, #1a1f3a 0%, #0a0e27 50%),
-                        radial-gradient(ellipse at bottom, #0f1829 0%, #0a0e27 50%);
+                radial-gradient(ellipse at bottom, #0f1829 0%, #0a0e27 50%);
             z-index: 0;
         }
 
@@ -37,7 +38,7 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(0, 200, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 200, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -46,8 +47,13 @@
         }
 
         @keyframes gridScroll {
-            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
-            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+            0% {
+                transform: perspective(500px) rotateX(60deg) translateY(0);
+            }
+
+            100% {
+                transform: perspective(500px) rotateX(60deg) translateY(50px);
+            }
         }
 
         nav {
@@ -136,6 +142,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -190,8 +197,15 @@
         }
 
         @keyframes glowPulse {
-            0%, 100% { text-shadow: 0 0 10px rgba(0, 200, 255, 0.5); }
-            50% { text-shadow: 0 0 30px rgba(0, 200, 255, 0.8); }
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 30px rgba(0, 200, 255, 0.8);
+            }
         }
 
         h2 {
@@ -276,8 +290,13 @@
         }
 
         @keyframes scanLine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         .stat-card {
@@ -337,8 +356,15 @@
         }
 
         @keyframes avatarFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         .info-line {
@@ -377,6 +403,10 @@
             border-left-color: #00ff88;
         }
 
+        .accomplishment2 {
+            border-left-color: #ffa500;
+        }
+
         .issue {
             border-left-color: #ffa500;
         }
@@ -387,8 +417,15 @@
         }
 
         @keyframes criticalPulse {
-            0%, 100% { box-shadow: 0 0 0 rgba(255, 51, 102, 0); }
-            50% { box-shadow: 0 0 30px rgba(255, 51, 102, 0.5); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 rgba(255, 51, 102, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+            }
         }
 
         .priority-badge {
@@ -519,40 +556,270 @@
         }
 
         @media (max-width: 768px) {
-            .grid-2, .grid-4, .profile-section {
+
+            .grid-2,
+            .grid-4,
+            .profile-section {
                 grid-template-columns: 1fr;
             }
-            
+
             .nav-links {
                 font-size: 0.8em;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
-            
+
             h2 {
                 font-size: 1.8em;
             }
-            
+
             .container {
                 padding: 80px 20px 20px 20px;
             }
-            
+
             .section-card {
                 padding: 30px 20px;
             }
         }
+
+        /* Add this inside your existing <style> tag, at the end */
+        @media print {
+
+            /* Preserve backgrounds and colors */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            /* Keep the dark background and text colors */
+            body {
+                background: #0a0e27 !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            /* Preserve section card styling */
+            .section-card {
+                background: rgba(15, 25, 45, 0.85) !important;
+                border: 1px solid rgba(0, 200, 255, 0.3) !important;
+                box-shadow: 0 0 80px rgba(0, 200, 255, 0.2) !important;
+            }
+
+            /* Keep data item styling */
+            .data-item {
+                background: rgba(0, 30, 60, 0.6) !important;
+                border-left: 4px solid #00c8ff !important;
+            }
+
+            /* Preserve tech box styling */
+            .tech-box {
+                background: rgba(0, 200, 255, 0.05) !important;
+                border: 1px solid rgba(0, 200, 255, 0.3) !important;
+            }
+
+            /* Keep all headings colored */
+            h1,
+            h2,
+            h3 {
+                color: #00c8ff !important;
+            }
+
+            /* Hide nav and decorative elements */
+            nav,
+            .tech-background,
+            .tech-grid {
+                display: none !important;
+            }
+
+            /* Ensure page breaks don't cut through sections */
+            section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Preserve grid layouts */
+            .grid-2,
+            .grid-4 {
+                display: grid !important;
+                break-inside: avoid;
+            }
+
+            /* Keep QR code visible */
+            .qr-code {
+                background: white !important;
+                print-color-adjust: exact;
+            }
+
+            /* Hide print button when printing */
+            .download-btn {
+                display: none !important;
+            }
+
+            /* Ensure priority badges remain colored */
+            .priority-badge {
+                print-color-adjust: exact !important;
+            }
+        }
+
+        /* Update the existing media query and add new ones */
+        @media (max-width: 1024px) {
+
+            .grid-2,
+            .grid-4 {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .container {
+                padding: 80px 20px 20px;
+            }
+
+            .section-card {
+                padding: 30px 20px;
+            }
+
+            .nav-links {
+                display: none;
+                /* Hide default nav on mobile */
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .grid-2,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .stat-number {
+                font-size: 2.5em;
+            }
+
+            .profile-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .profile-avatar {
+                margin: 0 auto;
+                width: 180px;
+                height: 180px;
+            }
+
+            .budget-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .data-item {
+                padding: 15px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .tech-box {
+                padding: 15px;
+            }
+
+            .qr-code {
+                width: 150px;
+                height: 150px;
+            }
+
+            .download-btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+
+            /* Contact info grid adjustment */
+            [style*="grid-template-columns: 200px 1fr"] {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+            }
+
+            [style*="text-align: right"] {
+                text-align: center !important;
+            }
+        }
+
+        /* Add a mobile-friendly navigation */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            color: #00c8ff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 39, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 20px;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="tech-background"></div>
     <div class="tech-grid"></div>
 
     <nav>
         <div class="nav-container">
-            <div class="nav-logo">Эрдэнэт Хивс IT</div>
+            <button class="mobile-menu-btn">☰</button>
+            <div class="nav-logo">
+                <img src="et.jpg" alt="Эрдэнэт Хивс Logo" style="height: 90px; width: auto;">
+            </div>
+            
             <div class="nav-links">
+                
                 <a href="#home">Нүүр</a>
                 <a href="#profile">Танилцуулга</a>
                 <a href="#accomplishments">Гүйцэтгэсэн ажил</a>
@@ -562,6 +829,8 @@
                 <a href="#phase2">II үе шат</a>
                 <a href="#budget">Төсөв</a>
                 <a href="#vision">Алсын хараа</a>
+                
+                
             </div>
         </div>
     </nav>
@@ -574,33 +843,33 @@
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
+
                 <div style="text-align: center;">
                     <h1>Мэдээллийн технологийн дэд бүтэц</h1>
                     <h1 style="font-size: 2.5em;">Үнэлгээ ба төлөвлөгөө</h1>
                     <div class="subtitle" style="font-size: 1.8em; margin-top: 20px;">Эрдэнэт Хивс</div>
-                    
+
                     <div class="grid-4" style="margin-top: 60px;">
                         <div class="stat-card">
-                            <span class="stat-number">1.5</span>
+                            <span class="stat-number">2</span>
                             <div class="stat-label">Ажилласан Сар<br>Эрдэнэт Хивс</div>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number">5+</span>
+                            <span class="stat-number">+5</span>
                             <div class="stat-label">Ажил<br>Гүйцэтгэсэн</div>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number">24/7</span>
-                            <div class="stat-label">Системийн<br>Хяналт</div>
+                            <span class="stat-number">+20</span>
+                            <div class="stat-label">Майл хаяг<br>Нээсэн</div>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number">100%</span>
-                            <div class="stat-label">Амлалтын<br>Түвшин</div>
+                            <span class="stat-number">+50</span>
+                            <div class="stat-label">Нүүр, хурууны хээ <br>Таниулалт</div>
                         </div>
                     </div>
 
                     <div style="margin-top: 50px; color: #7dd3fc; font-size: 1.3em;">
-                        Гүйцэтгэх захирлын хяналтанд зориулан бэлтгэв | 2025 оны 10 сар
+                        Удирдлагын хяналтанд зориулан бэлтгэв | 2025 оны 11 сар
                     </div>
                 </div>
             </div>
@@ -613,46 +882,55 @@
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
+
                 <h2>ТАНИЛЦУУЛГА / Мэдээллийн технологийн инженер</h2>
                 <div class="subtitle">Боловсрол ба мэргэжлийн ур чадвар</div>
-                
+
                 <div class="profile-section">
                     <div class="profile-avatar">
-                        <img src="prof.jpeg" alt="Profile Photo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: none;">
+                        <img src="prof.jpeg" alt="Profile Photo"
+                            style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: none;">
                     </div>
                     <div>
                         <div class="info-line">
                             <strong style="color: #00c8ff;">Нэр:</strong> Нямдорж Түмэндэлгэр
                         </div>
                         <div class="info-line">
-                            <strong style="color: #00c8ff;">Нас:</strong> 22 настай
+                            <strong style="color: #00c8ff;">Нас:</strong> 22
                         </div>
-                        <div class="info-line"> 
+                        <div class="info-line">
                             <strong style="color: #00c8ff;">Зааварчилсан:</strong> Дэд бүтцийн захирал А. Батдэлгэр
                         </div>
                         <div class="info-line">
                             <strong style="color: #00c8ff;">Албан тушаал:</strong> IT Инженер дадлагын ажилчин → Жинхлэх
                         </div>
                         <div class="info-line">
-                            <strong style="color: #00c8ff;">Ажиллаж эхэлсэн өдөр:</strong> 2025, 9 сарын 5 
+                            <strong style="color: #00c8ff;">Ажиллаж эхэлсэн өдөр:</strong> 2025, 9 сарын 5
                         </div>
                         <div class="info-line">
-                            <strong style="color: #00c8ff;">Хугацаа:</strong> 1.5 Сар ажилласан
+                            <strong style="color: #00c8ff;">Хугацаа:</strong> 2 Сар ажилласан
                         </div>
                     </div>
                 </div>
 
-         
+
                 <div style="margin-top: 40px;">
                     <h3>Боловсрол ба туршлага</h3>
-                    <div class="grid-2">
+                    <div class="grid-3">
                         <div class="tech-box">
                             <h3 style="color: #00ff88;">🎓 Боловсрол</h3>
                             <div class="data-item accomplishment">
                                 <strong>Мэдээллийн Систем</strong><br>
                                 ШУТИС МХТС<br>
                                 <strong>Төгссөн: 2025, 6 сар</strong>
+                            </div>
+                        </div>
+                        <div class="tech-box">
+                            <h3 style="color: #00ff88;">🎓 Дипломын ажил</h3>
+                            <div class="data-item accomplishment">
+                                <strong>Эмийн хослолыг урьдчилан таамаглах</strong><br>
+                                ШУТИС МХТС<br>
+                                <strong>Хамгаалсан: 2025, 5 сар</strong>
                             </div>
                         </div>
                         <div class="tech-box">
@@ -675,157 +953,181 @@
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
-                <h2>АМЖИЛТУУД</h2>
-                <div class="subtitle">2025 оны 9 сараас хойш хэрэгжүүлсэн ажилууд</div>
-                
+
+                <h2>ГҮЙЦЭТГЭЛҮҮД</h2>
+                <div class="subtitle">2025 оны 9 сараас хойш гүйцэтгэсэн ажилууд</div>
+
                 <div class="data-item accomplishment">
-                    <strong style="color: #00ff88; font-size: 1.2em;">⚡ ШИНЭ ОЁДОЛЫН МАШИН СҮЛЖЭЭ НЭВТРҮҮЛЭЛТ</strong><br>
-                    Шинэ үйлдвэрлэлийн оёдлын машинд зориулсан сүлжээний дэд бүтцийг амжилттай суулгаж, нэгтгэл хийсэн. Систем тасралтгүй ажиллаж, үйлдвэрлэлд ашиглахад бэлэн.
+                    <strong style="color: #00ff88; font-size: 1.2em;">⚡ МӨЛХӨӨ ЭЭРЭГЧ МАШИНЫ СҮЛЖЭЭ ХОЛБОЛТ</strong><br>
+                    Ээрэгч машины сүлжээний холболтыг амжилттай татаж мөн гадаад ажилчинд хэрэгцээт түр хугацааны wifi
+                    сүлжээг суурилуулж өгсөн.
                 </div>
-                
+
                 <div class="data-item accomplishment">
-                    <strong style="color: #00ff88; font-size: 1.2em;">📹 НООСНЫ ҮЙЛДВЭРИЙН ХЯНАЛТЫГ ӨРГӨТГӨЛ</strong><br>
-                    Байгууламжийн шаардлагын дагуу 3 ширхэг нэмэлт хяналтын камер суурилуулах төлөвлөгөө боловсруулж, камерын байршлыг оновчтой байрлуулсан. Төсөв боловсруулсан бөгөөд Гүйцэтгэх захирлын гарын үгийг хүлээж байна.
+                    <strong style="color: #00ff88; font-size: 1.2em;">⚙️ ШИНЭ RCE2+ МАШИН СҮЛЖЭЭ ХОЛБОЛТ</strong><br>
+                    Шинэ үйлдвэрлэлийн нэхэх машинд зориулсан сүлжээний дэд бүтцийг амжилттай суулгаж, нэгтгэл хийсэн.
+                    Систем тасралтгүй ажиллаж, үйлдвэрлэлд ашиглахад бэлэн.
                 </div>
-                
                 <div class="data-item accomplishment">
-                    <strong style="color: #00ff88; font-size: 1.2em;">🛰️ ГОВИЛИЙН НООС ХАДГАЛАХ БАЙРЛАЛЫН ХЯНАЛТ</strong><br>
-                    4 камер бүхий нарны энергитэй, e-SIM холболттой алсын хяналтын шийдлийг боловсруулсан. Алсын агуулахад 24/7 хяналт хийх бие даасан цахилгаан ба сүлжээний дэд бүтэц суурилуулсан.
+                    <strong style="color: #00ff88; font-size: 1.2em;">🧑🏻‍💻 ХӨВСГӨЛ,ДАРХАН ДЭЛГҮҮРИЙН
+                        СҮЛЖЭЭ</strong><br>
+                    Хөвсгөлийн салбар дэлгүүрийн сүлжээний холболт камеруудын асуудлыг шийдэж өгсөн.
                 </div>
-                
                 <div class="data-item accomplishment">
-                    <strong style="color: #00ff88; font-size: 1.2em;">💰 НИЙТ ТӨСВИЙН ТӨЛӨВЛӨГӨӨ</strong><br>
-                    Олон төсөлд зориулсан нарийвчилсан зардлын тооцоо болон төсвийн тооцооллыг бэлэн болгосон. Тоног төхөөрөмж нийлүүлэгчидтэй үнийн санал, үнийн баталгаажуулалтыг зохицуулсан.
+                    <strong style="color: #00ff88; font-size: 1.2em;">🏨 ЗОЧИД БУУДЛЫН СҮЛЖЭЭ ХОЛБОЛТ</strong><br>
+                    Зочид буудлын дотоод сүлжээний холболтыг амжилттай хийж, камерын холболтыг засаж өгсөн. Камерын
+                    холболтыг хэрэгцээтэй ажилчидад хянах боломжтойгоор шийдэж өгсөн. Буудлын өрөө серверын асуудлуудыг
+                    цаг тухай бүрт шийдэн явж байна.
                 </div>
-                
+
                 <div class="data-item accomplishment">
-                    <strong style="color: #00ff88; font-size: 1.2em;">🔗 БАЙГУУЛЛАГЫН ДУНД IT НЭГТГЭЛ</strong><br>
-                    Хөрш зочид буудлын байгууллагатай хамтарсан IT үйлчилгээний холбоог тогтоосон. Хоёр давхарын оффис руу холбогдох нийтлэг гарцанд ухаалаг нэвтрэх хяналтын систем төлөвлөж байна.
+                    <strong style="color: #00ff88; font-size: 1.2em;">⚡ БУГАТ АМРАЛТЫН ИНТЕРНЕТ</strong><br>
+                    Бугат амралтын хуучин интернет болох Starlink Gen2 загварыг Starlink Gen3 загвараар сольж шинэчлэлт
+                    хийн тогтвортой хурдан интернет сүлжээг суурилуулсан
                 </div>
-                
+
                 <div class="data-item accomplishment">
-                    <strong style="color: #00ff88; font-size: 1.2em;">🔧 ҮРГЭЛЖЛҮҮЛСЭН СҮЛЖЭЭНИЙ АСАРГАА</strong><br>
-                    Хяналтын систем, NVR болон сүлжээний дэд бүтцэд өдөр тутмын техникийн дэмжлэг, алдааг илрүүлэх болон засвар үйлчилгээ үзүүлж байна.
+                    <strong style="color: #00ff88; font-size: 1.2em;">🧑🏻‍🔧 ШИНЭ АЖИЛЧДЫН НҮҮР, ХУРУУНЫ ХЭЭ ТАНИУЛАЛТ,
+                        МЭЙЛ
+                        ХАЯГ</strong><br>
+                    50 гаруй ажилчдын нуур хурууны хээ, 20 гаруй ажилчдын мэйл хаяг, 5 гаруй ажилчдын бүртгэл устгасан.
+                </div>
+
+                <div class="data-item accomplishment">
+                    <strong style="color: #00ff88; font-size: 1.2em;">📹 КАМЕР ЗАСВАР</strong><br>
+                    Эсгийлэх, найрамдлын үйлдвэрийн камерын холболтыг засаж, холболтын утсыг сольсон, мөн хялгас ялгах
+                    хэсгийн камерын харах байршлыг хүсэлтийн дагуу өөрчилж өгсөн.
+                </div>
+
+
+
+                <div class="data-item accomplishment">
+                    <strong style="color: #00ff88; font-size: 1.2em;">🖥️ СЕРВЕР ЗАСВАР</strong><br>
+                    CARPET_P програмын серверийг амжилттай засаж техник хангамжийн асуудлыг илрүүлж, нөөц хард диск
+                    хувилж, сар бүр автоматаар датаг backup хийх тохиргоог хийж, үйлдлийн системийг шинэчлэх зэрэг
+                    засвар үйлчилгээг амжилттай хийсэн.
+                </div>
+
+                <div class="data-item accomplishment">
+                    <strong style="color: #00ff88; font-size: 1.2em;">🖥️ ӨДӨР ТУТМЫН ТУСЛАМЖ</strong><br>
+                    Прожектор, принтер, дотоод сүлжээ, холболтын асуудлыг цаг бүрт шийдэж, мөн ажилчдын принтерийн хор
+                    солих, компьютер, лаптопуудыг шаардлагатай үед задалж цэвэрлэж үйлчилгээ хийсэн, хэрэглээний
+                    програмуудыг суулгаж өгсөн. Камер шүүлт хийх зэрэг өдөр тутмын тусламжийг үзүүлж байна.
+                </div>
+
+
+
+                <div class="data-item accomplishment">
+                    <strong style="color: #00ff88; font-size: 1.2em;">🔧 ЗАСВАР ҮЙЛЧИЛГЭЭ</strong><br>
+                    Хяналтын систем, NVR болон сүлжээний дэд бүтцэд өдөр тутмын техникийн дэмжлэг, алдааг илрүүлэх болон
+                    засвар үйлчилгээг тогтмол явуулж байгаа.
                 </div>
             </div>
         </section>
 
-        <!-- STATUS -->
-        <section id="status">
+        <section id="accomplishments">
             <div class="section-card">
                 <div class="cyber-corner top-left"></div>
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
-                <h2>СИСТЕМИЙН ТӨЛӨВ БАЙДАЛ</h2>
-                <div class="subtitle">Одоогийн системийн үнэлгээ</div>
-                
-                <div class="grid-2">
-                    <div class="tech-box" style="border-left: 4px solid #00ff88;">
-                        <h3 style="color: #00ff88;">✓ АЖИЛЛАЖ БУЙ СИСТЕМҮҮД</h3>
-                        <div class="data-item accomplishment">
-                            <strong>Хяналтын дэд бүтэц</strong><br>
-                            Бүх хяналтын камерүүд хэвийн ажиллаж, дүрсийн чанар тод байна
-                        </div>
-                        <div class="data-item accomplishment">
-                            <strong>Network Video Recorders (NVR)</strong><br>
-                            Бичлэгийн систем тогтвортой бөгөөд архивлалт бүрэн
-                        </div>
-                        <div class="data-item accomplishment">
-                            <strong>Сүлжээний холболт</strong><br>
-                            Гол дэд бүтэц найдвартай холболт өгч байна
-                        </div>
-                        <div class="data-item accomplishment">
-                            <strong>Алсын хяналт</strong><br>
-                            Ноос хадгалах алсын байршилд нарны эрчим хүч, e-SIM систем ажиллаж байна
-                        </div>
-                    </div>
-                    
-                    <div class="tech-box" style="border-left: 4px solid #ff3366;">
-                        <h3 style="color: #ff3366;">⚠ ШААРДЛАГАТАЙ ЧУХАЛ АЛДААНЫ ТӨЛӨВ</h3>
-                        <div class="data-item critical">
-                            <strong style="color: #ff3366;">НЭХЭХ ҮЙЛДВЭРИЙН СЕРВЕР УНТАРСАН</strong>
-                            <span class="priority-badge priority-high">ЯАРАЛТАЙ</span><br>
-                            Эхлэх давталт: "Групп бодлого хүлээнэ үү" гэж гарч байна<br>
-                            Шалтгаан: Гэнэт цахилгаан тасарсан
-                        </div>
-                        <div class="data-item critical">
-                            <strong style="color: #ff3366;">CARPET_P ПРОГРАМ ОФФЛАЙН</strong>
-                            <span class="priority-badge priority-high">ЯАРАЛТАЙ</span><br>
-                            Үйлдвэрийн мөрдөх систем унтарсан<br>
-                            Ажилчдын цагийн бүртгэл ба хивс хүргэлтийн мөрдөлт зогссон
-                        </div>
-                        <div class="data-item critical">
-                            <strong style="color: #ff3366;">СЕРВЕРИЙН СҮЛЖЭЭ ТАСАРСАН</strong>
-                            <span class="priority-badge priority-high">ЯАРАЛТАЙ</span><br>
-                            Сүлжээнд холболт тогтоож чадахгүй байна<br>
-                            Систем сэргээх ажиллагаа хаагдсан
-                        </div>
-                    </div>
+
+                <h2>ТӨЛӨВЛӨГӨӨ</h2>
+                <div class="subtitle">Одоогоор төлөвлөгдөж буй ажилууд</div>
+
+                <div class="data-item accomplishment2">
+                    <strong style="color: #ffa500; font-size: 1.2em;">📹 НООСНЫ ҮЙЛДВЭРИЙН ХЯНАЛТЫГ
+                        ӨРГӨТГӨЛ</strong><br>
+                    Байгууламжийн шаардлагын дагуу 3 ширхэг нэмэлт хяналтын камер суурилуулах төлөвлөгөө боловсруулж,
+                    камерын байршлыг оновчтой байрлуулсан. Төсөв боловсруулсан бөгөөд Гүйцэтгэх захирлын гарын үгийг
+                    хүлээж байна.
                 </div>
+
+                <div class="data-item accomplishment2">
+                    <strong style="color: #ffa500; font-size: 1.2em;">🛰️ ГОВИЛИЙН НООС ХАДГАЛАХ БАЙРЛАЛЫН
+                        ХЯНАЛТ</strong><br>
+                    4 камер бүхий нарны энергитэй, e-SIM холболттой алсын хяналтын шийдлийг боловсруулсан. Алсын
+                    агуулахад 24/7 хяналт хийх бие даасан цахилгаан ба сүлжээний ажиллах камерын төсөв боловсруулсан.
+                </div>
+
+                <div class="data-item accomplishment2">
+                    <strong style="color: #ffa500; font-size: 1.2em;">🚗 ҮЙЛДВЭРИЙН АРД СМАРТ АВТО ЗОГСООЛ</strong><br>
+                    Одоогоор 2 байгууллагуудаас үнийн санал авч судалгаа хийсэн, нэмэлт судалгаа өөр байгууллагуудаас
+                    санал авах шаардлагатай.
+                </div>
+
+                <div class="data-item accomplishment2">
+                    <strong style="color: #ffa500; font-size: 1.2em;">🔗 НЭВТРЭХ СИСТЕМ</strong><br>
+                    Зочид буудал, оффис руу холбогдох гарцанд ухаалаг нэвтрэх хяналтын системын судалгаа хийгдэж байгаа.
+                </div>
+                <div class="data-item accomplishment2">
+                    <strong style="color: #ffa500; font-size: 1.2em;">📹 ҮЙЛДВЭРИЙН ГАДНА ТАЛЫН КАМЕР</strong><br>
+                    Нэхэх үйдлвэрийн ард камер суурилуулж шинээр рак тавьж өгсөн мөн үйлдвэрийн баруун дээд буланд 2
+                    камерыг ойрын хугацаанд суурилуулах төлөвлөгөөтэй байгаа.
+                </div>
+
             </div>
         </section>
+
+        <!-- STATUS -->
+
 
         <!-- PROBLEMS -->
         <section id="problems">
             <div class="section-card">
-            <div class="cyber-corner top-left"></div>
-            <div class="cyber-corner top-right"></div>
-            <div class="cyber-corner bottom-left"></div>
-            <div class="cyber-corner bottom-right"></div>
-            
-            <h2>СИСТЕМИЙН АСУУДЛУУД</h2>
-            <div class="subtitle">Анхаарал шаардлагатай илэрсэн асуудлууд</div>
-            
-            <div class="tech-box" style="border-left: 4px solid #ffa500; margin-bottom: 25px;">
-                <h3 style="color: #ffa500;">⚡ СҮЛЖЭЭНИЙ ДЭД БҮТЭЦ</h3>
-                <div class="data-item issue">
-                <strong>Кабелийн менежментийн хямрал</strong>
-                <span class="priority-badge priority-high">ӨНДӨР</span><br>
-                Кабелуудын гарал, очих цэг, чиглэл тодорхойгүй, эмх замбараагүй. Баримтжуулалт, шошгололтын систем байхгүй.
-                </div>
-                <div class="data-item issue">
-                <strong>Ил задгай сүлжээний свичүүд</strong>
-                <span class="priority-badge priority-high">ӨНДӨР</span><br>
-                Свичүүд үйлдвэрийн ширүүн орчинд хананд ил байрласан. Тоос, механик гэмтэлд өртөмтгий.
-                </div>
-                <div class="data-item issue">
-                <strong>LAN чиглүүлэлт оновчгүй</strong>
-                <span class="priority-badge priority-medium">ДУНД</span><br>
-                Кабелийн чиглэл бүрэн оновчтой биш. Эмх замбараагүй байдал нь засвар үйлчилгээ хийхэд хүндрэл үүсгэдэг.
-                </div>
-                <div class="data-item issue">
-                <strong>Сүлжээний баримтжуулалт байхгүй</strong>
-                <span class="priority-badge priority-medium">ДУНД</span><br>
-                Топологийн зураг, тохиргоо, IP схем дутуу. Алдаа засварлахад хүндрэлтэй.
-                </div>
-            </div>
+                <div class="cyber-corner top-left"></div>
+                <div class="cyber-corner top-right"></div>
+                <div class="cyber-corner bottom-left"></div>
+                <div class="cyber-corner bottom-right"></div>
 
-            <div class="tech-box" style="border-left: 4px solid #ffa500;">
-                <h3 style="color: #ffa500;">🖥️ ТОНОГ ТӨХӨӨРӨМЖ & БАЙГУУЛАМЖ</h3>
-                <div class="data-item issue">
-                <strong>Хуучирсан компьютерийн тоног төхөөрөмж</strong>
-                <span class="priority-badge priority-medium">ДУНД</span><br>
-                Оффисын компьютер, ажлын станцууд ихээхэн хуучирсан. Гүйцэтгэл сул, бүтээмж буурч байна.
+                <h2>СИСТЕМИЙН АСУУДЛУУД</h2>
+                <div class="subtitle">Анхаарал шаардлагатай илэрсэн асуудлууд</div>
+
+                <div class="tech-box" style="border-left: 4px solid #ffa500; margin-bottom: 25px;">
+                    <h3 style="color: #ffa500;">⚡ СҮЛЖЭЭНИЙ ДЭД БҮТЭЦ</h3>
+                    <div class="data-item issue">
+                        <strong>Кабелийн менежмент</strong>
+                        <span class="priority-badge priority-high">ӨНДӨР</span><br>
+                        Кабелуудын гарал, очих цэг, чиглэл тодорхойгүй. Баримтжуулалт, шошгололтын
+                        систем бий болгох шаардлага.
+                    </div>
+
+                    <div class="data-item issue">
+                        <strong>LAN чиглүүлэлт оновчгүй</strong>
+                        <span class="priority-badge priority-medium">ДУНД</span><br>
+                        Кабелийн чиглэл бүрэн оновчтой биш. Эмх замбараагүй байдал нь засвар үйлчилгээ хийхэд хүндрэл
+                        үүсгэдэг.
+                    </div>
+                    <div class="data-item issue">
+                        <strong>Сүлжээний баримтжуулалтыг шинэчлэх</strong>
+                        <span class="priority-badge priority-medium">ДУНД</span><br>
+                        Топологийн зураг, тохиргоо, IP схемыг шинэчлэх. Алдаа засварлахад амар болж өгдөг.
+                    </div>
                 </div>
-                <div class="data-item issue">
-                <strong>Серверийн өрөө шинэчлэлт шаардлагатай</strong>
-                <span class="priority-badge priority-high">ӨНДӨР</span><br>
-                Тоног төхөөрөмж зохих ёсоор суурилагдаагүй, хөргөлт хангалтгүй. Мэргэжлийн rack суурилуулалт хэрэгтэй.
+
+                <div class="tech-box" style="border-left: 4px solid #ffa500;">
+                    <h3 style="color: #ffa500;">🖥️ ТОНОГ ТӨХӨӨРӨМЖ & БАЙГУУЛАМЖ</h3>
+                    <div class="data-item issue">
+                        <strong>Серверийн өрөө шинэчлэлт шаардлагатай</strong>
+                        <span class="priority-badge priority-high">ӨНДӨР</span><br>
+                        Тоног төхөөрөмж суурилалтыг солих, хөргөлт хангалтгүй. Актлагдсан төхөөрөмжүүдийг суллах
+                        хэрэгтэй.
+
+
+                    </div>
+                    <div class="data-item issue">
+                        <strong>Хуучирсан компьютерийн тоног төхөөрөмж</strong>
+                        <span class="priority-badge priority-medium">ДУНД</span><br>
+                        Оффисын компьютер, ажлын станцууд ихээхэн хуучирсан. Гүйцэтгэл сул, бүтээмж буурч байна.
+                    </div>
+
+                    <div class="data-item issue">
+                        <strong>Серверийн рак зохицуулалт</strong>
+                        <span class="priority-badge priority-medium">ДУНД</span><br>
+                        Серверийн ракыг цэгцэлж цэвэрлэх шаардлагатай. Төхөөрөмжүүдийг шинэчлэх хэрэгтэй.
+                    </div>
+
                 </div>
-                <div class="data-item issue">
-                <strong>Веб төхөөрөмж rack-д суурилагдаагүй</strong>
-                <span class="priority-badge priority-medium">ДУНД</span><br>
-                Чухал веб төхөөрөмж серверийн өрөөнд сул тавигдсан. Rack-д бэхлэх шаардлагатай.
-                </div>
-                <div class="data-item issue">
-                <strong>Цахилгаан хамгаалалт хангалтгүй</strong>
-                <span class="priority-badge priority-high">ӨНДӨР</span><br>
-                Зөвхөн 2 UPS төхөөрөмжтэй. Сүүлийн цахилгаан тасралтаар сервер унтарсан. Илүү их нөөц тэжээл шаардлагатай.
-                </div>
-            </div>
             </div>
         </section>
 
@@ -836,69 +1138,53 @@
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
+
                 <h2>I ҮЕ ШАТНЫ ТӨЛӨВЛӨГӨӨ</h2>
-                <div class="subtitle">Immediate Priorities (1-3 Months)</div>
-                
-                <div class="timeline-item" style="border-left-color: #ff3366;">
-                    <div class="timeline-phase" style="color: #ff3366;">ЯАРАЛТАЙ</div>
-                    <div>
-                        <strong style="color: #ff3366; font-size: 1.3em;">СЕРВЕР СЭРГЭЭХ</strong>
-                        <span class="priority-badge priority-high">ШУУРХАЙ</span><br>
-                        <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
-                            • Групп бодлого эхлэх давталтыг оношилж засах<br>
-                            • Серверийн сүлжээний холболтыг сэргээх<br>
-                            • Carpet_P програм руу дахин нэвтрэх боломжийг сэргээх<br>
-                            • Үйлдвэрийн мөрдөх системийн ажиллагааг шалгах<br>
-                            • Ирээдүйн тасарлаас сэргийлэх зорилгоор UPS хамгаалалт суурилуулах
-                        </div>
-                    </div>
-                </div>
+                <div class="subtitle">Яаралтай ажилууд(1-3 сарын)</div>
 
-                <div class="timeline-item">
-                    <div class="timeline-phase">1-2 ДОЛОО ХООР</div>
+                <div class="timeline-item" style="border-left-color: #ffa500;">
+                    <div class="timeline-phase" style="color: #ffa500;"></div>
                     <div>
-                        <strong style="font-size: 1.2em;">СҮЛЖЭЭНИЙ БАРИМТЖУУЛАЛТ</strong>
-                        <span class="priority-badge priority-high">ӨНДӨР</span><br>
-                        <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
-                            • Сүлжээний бүтцийг бүрэн зураглах<br>
-                            • Нарийвчилсан топологийн зураг боловсруулах<br>
-                            • Кабелийн шошгололт, тэмдэглэгээний системийг нэвтрүүлэх<br>
-                            • Свичийн тохиргоо болон VLAN-ийг баримтжуулах<br>
-                            • IP хаягийн удирдлагын мэдээллийн сан үүсгэх
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-phase">2-4 ДОЛОО ХООР</div>
-                    <div>
-                        <strong style="font-size: 1.2em;">СВИЧ ХАМГААЛАЛТ СУУРЬЛУУЛАХ</strong>
-                        <span class="priority-badge priority-high">ӨНДӨР</span><br>
-                        <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
-                            • Аж үйлдвэрийн зэрэглэлийн хамгаалалтын хайрцаг суурилуулах<br>
-                            • Тоос, уур амьсгалын нөлөөнд тэсвэртэй бүрхүүл
-                            <br>• Дулаан ялгаруулахад зориулсан зохистой агааржуулалт<br>
-                            • Хатуу нөхцөл бүхий газарт бат бөх суурилуулалт<br>
-                            • Төсөв: Тооцоолол шаардлагатай, зөвшөөрөл шаардлагатай
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-phase">САР 2-3</div>
-                    <div>
-                        <strong style="font-size: 1.2em;">КАБЕЛИЙН МЕНЕЖМЕНТ ШИНЭЧЛЭЛ</strong>
+                        <strong style="color: #ffa500; font-size: 1.3em;">КАМЕР СУУРИЛУУЛАЛТ</strong>
                         <span class="priority-badge priority-medium">ДУНД</span><br>
                         <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
-                            • LAN кабелийн маршрутыг дахин зохион байгуулж оновчлох<br>
-                            • Мэргэжлийн кабель тавцан болон хоолой суурилуулах<br>
-                            • Өнгөөр ангилагдсан кабелийн менежмент нэвтрүүлэх<br>
-                            • Хуучирсан/хэрэглээгүй кабелийг устгах<br>
-                            • Засвар үйлчилгээтэй ажиллахад тохиромжтой дэд бүтцийг бий болгох
+                            • Үйлдвэрийн дээр суурилуулах камеруудыг суурилуулах<br>
+                            • Камерын серверын өрөөн дахь бичигч төхөөрөмжийг цэвэрлэх.
+                            • RCE2+ 2 дахь машинд сүлжээ татах <br>
                         </div>
                     </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-phase">1-3 ДОЛОО ХОНОГ</div>
+                    <div>
+                        <strong style="font-size: 1.2em;">КАМЕР СУУРИЛУУЛАЛТ</strong>
+                        <span class="priority-badge priority-high">ӨНДӨР</span><br>
+                        <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
+                            • Зочид буудлын угаалгын өрөөнд камер суурилуулах<br>
+                            • Шинээр NVR төхөөрөмж суурилуулах
+                            • Свичийн тохиргоо болон VLAN-ийг баримтжуулах<br>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-phase">САР 1-2</div>
+                    <div>
+                        <strong style="font-size: 1.2em;">НООСНЫ ҮЙЛДВЭРИЙН КАМЕР ӨРГӨТГӨЛ</strong>
+                        <span class="priority-badge priority-medium">ДУНД</span><br>
+                        <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
+                            • 3 шинэ хяналтын камер суурилуулах<br>
+                            • Камерын хүссэн байрлалыг бүрэн гүйцэт дахин байрлуулах<br>
+                            • Одоогийн NVR системтэй нэгтгэх<br>
+                            • Системийн төлөв: Төсөв тооцоологдсон<br>
+                            • Хяналтын харагдах орчинг орчинг өргөтгөх
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </section>
 
@@ -909,20 +1195,19 @@
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
+
                 <h2>II ҮЕ ШАТНЫ ТӨЛӨВЛӨГӨӨ</h2>
-                <div class="subtitle">Medium-Term Projects (3-6 Months)</div>
-                
+                <div class="subtitle">Дунд үеийн төсөл (3-6 сар)</div>
+
                 <div class="timeline-item">
                     <div class="timeline-phase">САР 3-4</div>
                     <div>
                         <strong style="font-size: 1.2em;">СЕРВЕРИЙН ӨРӨӨ ШИНЭЧЛЭЛ</strong>
                         <span class="priority-badge priority-high">ӨНДӨР</span><br>
                         <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
-                            • Веб төхөөрөмжийг мэргэжлийн шургуулганд бэхлэх<br>
-                            • Нэмэлт UPS нэгж суурилуул (хэвлэсэн хамгийн багадаа +2)<br>
+                            • Веб төхөөрөмжийг шургуулганд бэхлэх<br>
                             • Хөргөх ба агааржуулалтын систем сайжруулах<br>
-                            • Цахилгаан хангамжийн зохион байгуулалтыг сайжруулах<br>
+                            • Актлагдсан тоног төхөөрөмжүүдийг суллах<br>
                             • Орчны хяналтын систем нэвтрүүлэх
                         </div>
                     </div>
@@ -931,16 +1216,14 @@
                 <div class="timeline-item">
                     <div class="timeline-phase">САР 4</div>
                     <div>
-                        <strong style="font-size: 1.2em;">НООСНЫ ҮЙЛДВЭРИЙН КАМЕР ӨРГӨТГӨЛ</strong>
-                        <span class="priority-badge priority-medium">ДУНД</span><br>
+                        <strong style="font-size: 1.2em;">СҮЛЖЭЭНИЙ БАРИМТЖУУЛАЛТ</strong>
+                        <span class="priority-badge priority-high">ӨНДӨР</span><br>
                         <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
-                            • 3 шинэ хяналтын камер суурилуулах<br>
-                            • Камерын хүссэн байрлалыг бүрэн гүйцэт дахин байрлуулах<br>
-                            • Одоогийн NVR системтэй нэгтгэх<br>
-                            • Системийн төлөв: Төсөв тооцоологдсон, Гүйцэтгэх захирлын гарын үгийг хүлээж байна<br>
-                            • Хяналтын талбайг өргөтгөх
+                            • Сүлжээний бүтцийг засаж зураглах<br>
+                            • Нарийвчилсан топологийн зураг боловсруулах<br>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="timeline-item">
@@ -951,8 +1234,6 @@
                         <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
                             • Хурууны хээтэй нэвтрэх систем суурилуулах<br>
                             • Байршил: 2-р давхар оффисын холбогч гарц (зочид буудал руу гардаг)<br>
-                            • Зөвшөөрөгдсөн ажилтны нэвтрэлтийг хамгаалах<br>
-                            • Төвлөрсөн аюулгүй байдлын системтэй нэгтгэх<br>
                             • Төсөв: Бүтээгдэхүүн судалгаа болон тооцоолол шаардлагатай
                         </div>
                     </div>
@@ -964,11 +1245,9 @@
                         <strong style="font-size: 1.2em;">УХААЛАГ ЗОГСООЛЫН СИСТЕМ</strong>
                         <span class="priority-badge priority-low">БАГА</span><br>
                         <div style="margin-top: 12px; color: #ccc; line-height: 1.8;">
-                            • Автоматжуулсан зогсоол менежмент суурилуулах<br>
-                            • Байршил: Үйлдвэрийн барилгын ард<br>
-                            • Тээврийн хэрэгсэл таних, мөрдөх систем нэвтрүүлэх<br>
+                            • Байршил: Үйлдвэрийн ард<br>
+                            • Тээврийн хэрэгсэл таних систем<br>
                             • Нэвтрэх хяналтын системд нэгтгэх<br>
-                            • Зогсоолын ашиглалтыг оновчлох
                         </div>
                     </div>
                 </div>
@@ -982,41 +1261,30 @@
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
+
                 <h2>ТӨСВИЙН ТОВЧ ТАНИЛЦУУЛГА</h2>
                 <div class="subtitle">Төслийн зардлын шаардлага</div>
-                
+
                 <div class="budget-row budget-header">
                     <div>ТӨСӨЛ / ЗҮЙЛ</div>
                     <div>ТӨЛӨВ</div>
                     <div>ЧУХАЛ ШАТЛАЛ</div>
                 </div>
-                
-                <div class="budget-row">
-                    <div>Нэхэх үйлдвэрийн серверийн засвар ба UPS хамгаалалт</div>
-                    <div style="color: #ff3366;">⚡ Шуурхай</div>
-                    <div><span class="priority-badge priority-high">ЯАРАЛТАЙ</span></div>
-                </div>
-                
-                <div class="budget-row">
-                    <div>Сүлжээний свичний хамгаалалтын хайрцаг (аж үйлдвэрийн)</div>
-                    <div style="color: #ffa500;">📝 Тооцоолол шаардлагатай</div>
-                    <div><span class="priority-badge priority-high">ӨНДӨР</span></div>
-                </div>
+
 
                 <div class="budget-row">
-                    <div>Серверийн өрөө шинэчлэлт (Rack, UPS нэгжүүд)</div>
+                    <div>Серверийн өрөө шинэчлэлт </div>
                     <div style="color: #ffa500;">📝 Тооцоолол шаардлагатай</div>
-                    <div><span class="priority-badge priority-high">ӨНДӨР</span></div>
-                </div> 
+                    <div><span class="priority-badge priority-medium">Дунд</span></div>
+                </div>
 
                 <div class="budget-row">
                     <div>Кабелийн менежмент (тавцан, шошго, хэрэгсэл)</div>
                     <div style="color: #ffa500;">📝 Тооцоолол шаардлагатай</div>
                     <div><span class="priority-badge priority-medium">ДУНД</span></div>
                 </div>
-                
-              
+
+
 
                 <div class="budget-row">
                     <div>Компьютер ба тоног төхөөрөмжийн шинэчлэлт ( үе шаттай)</div>
@@ -1031,27 +1299,42 @@
                 </div>
 
                 <div class="budget-row">
-                    <div>Алсын ноос хадгалах хяналт (4 нарны камер)</div>
+                    <div>Үйлдвэрийн дээр суурилуулах камер</div>
+                    <div style="color: #00ff88;">✓ Тооцоологдсон</div>
+                    <div><span class="priority-badge priority-medium">ДУНД</span></div>
+                </div>
+
+                <div class="budget-row">
+                    <div>Зочид буудлын угаалгын өрөөнд камер суурилуулах</div>
+                    <div style="color: #00ff88;">✓ Тооцоологдсон</div>
+                    <div><span class="priority-badge priority-medium">ДУНД</span></div>
+                </div>
+
+                <div class="budget-row">
+                    <div>Говилын ноос агуулах камер (4 нарны камер)</div>
                     <div style="color: #00c8ff;">⏳ Нийлүүлэгчийн үнийн санал</div>
                     <div><span class="priority-badge priority-medium">ДУНД</span></div>
-                </div>               
+                </div>
 
-                 <div class="budget-row">
+                <div class="budget-row">
                     <div>Хурууны хээтэй нэвтрэх систем</div>
                     <div style="color: #00c8ff;">🔍 Судалгаа шаардлагатай</div>
                     <div><span class="priority-badge priority-low">БАГА</span></div>
                 </div>
-                
+
                 <div class="budget-row">
                     <div>Ухаалаг зогсоолын систем (үйлдвэрийн ард)</div>
                     <div style="color: #00c8ff;">🔍 Судалгаа шаардлагатай</div>
                     <div><span class="priority-badge priority-low">БАГА</span></div>
                 </div>
 
-                <div style="margin-top: 40px; padding: 30px; background: rgba(255, 165, 0, 0.1); border-radius: 15px; border: 2px solid rgba(255, 165, 0, 0.5); box-shadow: 0 0 30px rgba(255, 165, 0, 0.2);">
+                <div
+                    style="margin-top: 40px; padding: 30px; background: rgba(255, 165, 0, 0.1); border-radius: 15px; border: 2px solid rgba(255, 165, 0, 0.5); box-shadow: 0 0 30px rgba(255, 165, 0, 0.2);">
                     <strong style="color: #ffa500; font-size: 1.3em;">⚠ ТАЙЛБАР:</strong>
                     <div style="margin-top: 15px; color: #ccc; line-height: 1.8; font-size: 1.1em;">
-                        Нарийвчилсан зардлын задлан болон тооцоолол хүсэлтээр бэлэн. Олон төсөлд нийлүүлэгчийн эцсийн үнийн санал ба үнэ баталгаажуулалт хийгдээгүй байгаа. Шуурхай санхүүжилт шаардлагатай төслүүдийг тодорхойлсон бөгөөд үе шаттай хэрэгжүүлэх аргыг санал болгож байна.
+                        Нарийвчилсан зардлын задлан болон тооцоолол хүсэлтээр бэлэн. Олон төсөлд нийлүүлэгчийн эцсийн
+                        үнийн санал ба үнэ баталгаажуулалт хийгдээгүй байгаа. Шуурхай санхүүжилт шаардлагатай төслүүдийг
+                        тодорхойлсон бөгөөд үе шаттай хэрэгжүүлэх аргыг санал болгож байна.
                     </div>
                 </div>
             </div>
@@ -1064,10 +1347,10 @@
                 <div class="cyber-corner top-right"></div>
                 <div class="cyber-corner bottom-left"></div>
                 <div class="cyber-corner bottom-right"></div>
-                
+
                 <h2>АЛСЫН ХАРАА</h2>
                 <div class="subtitle">6–12 сарын стратегийн зорилтууд</div>
-                
+
                 <div class="grid-2">
                     <div class="tech-box">
                         <h3 style="color: #00c8ff;">🔧 ДЭД БҮТЭЦИЙН ОНОВЧЛОЛ</h3>
@@ -1084,7 +1367,8 @@
                             Чухал систем бүрд зориулсан цахилгаан хамгаалалтын өргөжилт
                         </div>
                         <div class="data-item">
-                            Бүтцийн тодорхой байдалтай кабелийн стандарт болон мэргэжлийн суурилуулалтын практик хэрэгжүүлэх
+                            Бүтцийн тодорхой байдалтай кабелийн стандарт болон мэргэжлийн суурилуулалтын практик
+                            хэрэгжүүлэх
                         </div>
                     </div>
 
@@ -1108,7 +1392,8 @@
                     </div>
                 </div>
 
-                <div class="tech-box" style="margin-top: 30px; background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.5);">
+                <div class="tech-box"
+                    style="margin-top: 30px; background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.5);">
                     <h3 style="color: #00ff88;">📊 ХҮЛЭЭГДЭЖ БУЙ ҮР ДҮН</h3>
                     <div class="grid-2" style="margin-top: 20px;">
                         <div>
@@ -1124,7 +1409,8 @@
                         <div>
                             <div class="data-item accomplishment">
                                 <strong>Засвар үйлчилгээний хялбар байдал</strong><br>
-                                Сайн зохион байгуулалттай, баримтжуулсан системүүд нь үр дүнтэй засвар үйлчилгээ хийхэд дэмжлэг үзүүлнэ
+                                Сайн зохион байгуулалттай, баримтжуулсан системүүд нь үр дүнтэй засвар үйлчилгээ хийхэд
+                                дэмжлэг үзүүлнэ
                             </div>
                             <div class="data-item accomplishment">
                                 <strong>Ирээдүйд бэлэн суурь</strong><br>
@@ -1136,21 +1422,29 @@
 
                 <div style="text-align: center; margin-top: 60px;">
                     <h2 style="font-size: 3em; margin-bottom: 30px;">ЦААШДЫН ХӨГЖЛИЙН ЗОРИЛТ</h2>
-                    
+
                     <div style="max-width: 1000px; margin: 0 auto; text-align: left;">
-                        <div class="data-item" style="border-left-color: #00c8ff; margin-bottom: 20px; font-size: 1.15em;">
-                            Энэ төлөвлөгөө нь Эрдэнэт Хивс-ийн мэдээллийн технологийн дэд бүтцийг шинэчлэх, өдөр тутмын үйл ажиллагаанд нөлөөлөх яаралтай асуудлуудыг шийдвэрлэх иж бүрэн системтэй аргачлал юм.
+                        <div class="data-item"
+                            style="border-left-color: #00c8ff; margin-bottom: 20px; font-size: 1.15em;">
+                            Энэ төлөвлөгөө нь Эрдэнэт Хивс-ийн мэдээллийн технологийн дэд бүтцийг шинэчлэх, өдөр тутмын
+                            үйл ажиллагаанд нөлөөлөх яаралтай асуудлуудыг шийдвэрлэх иж бүрэн системтэй аргачлал юм.
                         </div>
-                        
-                        <div class="data-item" style="border-left-color: #00c8ff; margin-bottom: 20px; font-size: 1.15em;">
-                            Сүлжээний зохион байгуулалт, аюулгүй байдал, серверийн дэд бүтэц, тоног төхөөрөмжийн шинэчлэл зэрэгт стратегийн сайжруулалтаар найдвартай, аюулгүй бөгөөд үр ашигтай технологийн суурь байгуулна.
+
+                        <div class="data-item"
+                            style="border-left-color: #00c8ff; margin-bottom: 20px; font-size: 1.15em;">
+                            Сүлжээний зохион байгуулалт, аюулгүй байдал, серверийн дэд бүтэц, тоног төхөөрөмжийн
+                            шинэчлэл зэрэгт стратегийн сайжруулалтаар найдвартай, аюулгүй бөгөөд үр ашигтай технологийн
+                            суурь байгуулна.
                         </div>
-                        
-                        <div class="data-item accomplishment" style="margin-bottom: 30px; font-size: 1.15em; background: rgba(0, 255, 136, 0.15);">
-                            <strong style="color: #00ff88; font-size: 1.2em;">Би энэ иж бүрэн төлөвлөгөөг хэрэгжүүлэхэд бүрэн тууштай бөгөөд техник технологийн ур чадвараа тасралтгүй хөгжүүлэн Эрдэнэт Хивс-д итгэлтэйгээр ажиллах болно.</strong>
+
+                        <div class="data-item accomplishment"
+                            style="margin-bottom: 30px; font-size: 1.15em; background: rgba(0, 255, 136, 0.15);">
+                            <strong style="color: #00ff88; font-size: 1.2em;">Би энэ иж бүрэн төлөвлөгөөг хэрэгжүүлэхэд
+                                бүрэн тууштай бөгөөд техник технологийн ур чадвараа тасралтгүй хөгжүүлэн Эрдэнэт Хивс-д
+                                итгэлтэйгээр ажиллах болно.</strong>
                         </div>
                     </div>
-                    
+
                     <div style="margin-top: 50px;">
                         <h1 style="font-size: 2.5em; letter-spacing: 4px;">АСУУЛТ ХҮЛЭЭН АВАХ</h1>
                         <div class="subtitle" style="margin-top: 20px; font-size: 1.5em;">& ХЭЛЭЛЦҮҮЛЭГ</div>
@@ -1162,14 +1456,29 @@
                     <div style="color: #7dd3fc; font-size: 1.1em; margin-bottom: 20px;">
                         Энэ холбоос эсвэл QR кодыг ашиглан хүссэн төхөөрөмжөөс нэвтэрч болно
                     </div>
-                    <div class="qr-code">📱</div>
-                    <div style="margin-top: 20px;">
-                        <a href="#" class="download-btn" onclick="window.print(); return false;">🖨️ Хэвлэх хувилбар</a>
-                        <a href="mailto:ceo@erdenek-khivs.mn?subject=%D0%9C%D1%8D%D0%B4%D1%8D%D1%8D%D0%BB%D0%BB%D0%B8%D0%B9%D0%BD%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9%D0%BD%20%D0%B4%D1%8D%D0%B4%20%D0%B1%D3%A5%D1%82%D1%8D%D1%86%20%D1%82%D0%B0%D0%B9%20%D1%82%D0%B0%D0%BD%D0%B8%D0%BB%D1%86%D1%83%D1%83%D0%BB%D0%B3%D0%B0" class="download-btn">📧 Гүйцэтгэх захиралд имэйл илгээх</a>
+                    <!-- Add this in the <head> section -->
+                    <div class="qr-code">
+                        <img src="qr.jpg" alt="QR Code" style="width: 180px; height: 180px;">
                     </div>
-                    <div style="margin-top: 30px; color: #7dd3fc; font-size: 1em;">
-                        <strong>Сүлжээний URL:</strong> http://[YOUR-DOMAIN]/it-report<br>
-                        <strong>Холбоо барих:</strong> IT Инженер - Нямдорж Түмэндэлгэр 99043077, 90577878<br>
+                    <div style="margin-top: 20px;">
+                        <a href="#" class="download-btn" onclick="window.print(); return false;">🖨️ Хэвлэх</a>
+
+                    </div>
+                    <div
+                        style="margin-top: 30px; color: #7dd3fc; font-size: 1em; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; margin-bottom: 8px;">
+                            <strong style="text-align: right;">Сүлжээний URL:</strong>
+                            <span
+                                style="text-align: left; word-break: break-all;">https://tumeyo.github.io/it-reports/</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; margin-bottom: 8px;">
+                            <strong style="text-align: right;">Зөвлөсөн:</strong>
+                            <span style="text-align: left;">Дэд бүтцийн захирал - А. Батдэлгэр</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 20px;">
+                            <strong style="text-align: right;">Холбоо барих:</strong>
+                            <span style="text-align: left;">IT Инженер - Нямдорж Түмэндэлгэр 99043077</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1191,11 +1500,23 @@
             });
         });
 
+        // Add to your existing script tag
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.nav-container')) {
+                document.querySelector('.nav-links').classList.remove('active');
+            }
+        });
+
         // Highlight active section in nav
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
-            
+
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
@@ -1203,7 +1524,7 @@
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.style.background = '';
                 link.style.borderColor = '';
@@ -1215,4 +1536,5 @@
         });
     </script>
 </body>
+
 </html>
