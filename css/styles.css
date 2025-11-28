@@ -113,13 +113,43 @@ body {
 }
 
 /* Home subtitle ("Эрдэнэт Хивс") slightly bigger and more prominent */
-#home .subtitle {
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  font-weight: 800;
-  color: #7fefff;
-  letter-spacing: 0.6px;
-  text-shadow: 0 0 12px rgba(0,200,255,0.12);
-  margin-top: 6px;
+/* 1. Fix first section being hidden under the fixed navigation */
+#home, 
+section:first-of-type,
+section:nth-of-type(1) {
+  padding-top: 120px !important;     /* clears the fixed nav */
+  margin-top: -80px !important;      /* pulls it back up visually */
+}
+
+/* 2. Make sure ALL sections have proper top spacing on mobile */
+@media (max-width: 768px) {
+  section {
+    padding-top: 100px !important;
+    min-height: calc(100vh - 80px) !important;
+  }
+  
+  /* Pull the first section back into view */
+  #home,
+  section:first-of-type {
+    padding-top: 140px !important;
+    margin-top: -100px !important;
+  }
+}
+
+/* 3. Extra safety for very small phones */
+@media (max-width: 480px) {
+  #home,
+  section:first-of-type {
+    padding-top: 130px !important;
+    margin-top: -90px !important;
+  }
+}
+
+/* 4. If you have a .hero-stats or big hero card on the first page – give it breathing room */
+.hero-stats,
+.section-card:first-child,
+#home .section-card {
+  margin-top: 20px !important;
 }
 
 /* gentle motion hint for logo area (no tint/glow): subtle hover lift */
