@@ -288,6 +288,37 @@ nav {
         font-size: 0.7rem;
         padding: 8px 10px;
     }
+    @media (max-width: 640px) {
+  .section-card {
+    padding: 44px 24px !important;
+    margin: 20px 12px;
+    width: calc(100% - 24px);
+    border-radius: 18px;
+  }
+
+  .tech-box,
+  .stat-card,
+  .data-item,
+  .timeline-item,
+  .info-line,
+  .budget-row {
+    padding: 26px 22px !important;
+    margin: 14px 0;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem !important;
+  }
+
+  h1 { font-size: 2.3rem !important; }
+  h2 { font-size: 1.8rem !important; padding-bottom: 18px !important; }
+  h2::after { bottom: 8px !important; }
+}
 }
 
 /* --- MAIN CONTENT --- */
@@ -994,3 +1025,16 @@ h2::after {
 
 /* ensure main content sits above the canvas */
 .section-card, nav, .container { position: relative; z-index: 10; }
+
+/* Remove jumpy hover lifts on phones – keep glow but no layout shift */
+@media (max-width: 768px) {
+  .tech-box:hover,
+  .stat-card:hover,
+  .data-item:hover,
+  .timeline-item:hover,
+  .info-line:hover,
+  .budget-row:hover {
+    transform: none !important;
+    box-shadow: 0 8px 30px rgba(0,200,255,0.25) !important;
+  }
+}
